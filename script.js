@@ -21,9 +21,9 @@ async function runFibBench (iterations = 30, n = 40) {
 
   const fib = res.instance.exports.fib;
   const fib_optimized = n > 40 ? res.instance.exports.fib_o_i64 : res.instance.exports.fib_o_i32;
-  n = n > 92 ? 92 : n;
+  // n = n > 92 ? 92 : n;
   // bench('WASM', fib, iterations, n)
-  bench('WASM optimized', fib_optimized, iterations, n>40?BigInt(40):n)
+  bench('WASM optimized', fib_optimized, iterations, n>40?BigInt(n):n)
   // bench('JS Recursive', fibonacci_recursive, iterations, n)
   bench('JS Matrix', fibonacci_matrix_method, iterations, n)
   bench('JS Iteratice', fibonacci_iterative, iterations, n)
